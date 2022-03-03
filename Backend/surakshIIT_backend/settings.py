@@ -31,6 +31,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
+    'Hall_movement.apps.HallMovementConfig',
     'user',
     'campus_entry_exit',
     'lost_found',

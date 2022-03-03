@@ -11,7 +11,7 @@ class Entry(models.Model):
    
 class Exit(models.Model):
     person = models.ForeignKey(Residents,on_delete=models.CASCADE)
-    exit_time = models.DateTimeField("Entry_time")
+    exit_time = models.DateTimeField("Exit_time")
     if_entered = models.BooleanField(default= False,editable=True)
     id= models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     destination = models.CharField(max_length= 80)
@@ -40,6 +40,7 @@ class Non_Resident_Entry(models.Model) :
 class Non_Resident_Exit(models.Model) :
     name = models.CharField(max_length=100)
     data = models.ForeignKey(Non_Resident_Entry,on_delete=models.CASCADE)
+    exit_time = models.DateTimeField("Exit_time")
     id= models.UUIDField(primary_key=True,default=uuid.uuid4,editable=False)
     
 
