@@ -31,6 +31,9 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
+    'user',
+    'campus_entry_exit',
+    'lost_found',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
    'corsheaders',
-   'main_app',
+   
 ]
 
 MIDDLEWARE = [
