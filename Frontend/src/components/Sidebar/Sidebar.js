@@ -69,8 +69,10 @@ const Sidebar = (props) => {
     setCollapseOpen(false);
   };
   // creates the links that appear in the left menu / Sidebar
+
   const createLinks = (routes) => {
     return routes.map((prop, key) => {
+      if(prop.invisible) return null;
       return (
         <NavItem key={key}>
           <NavLink

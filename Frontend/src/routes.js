@@ -19,6 +19,15 @@ import Profile from "views/examples/Profile.js";
 
 import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
+import CampusExit from "views/AddCampusExit";
+import CampusExitTable from "views/Security/Campus_movement";
+import NonResidentCampusEntryTable from "views/Security/NonResidentCampusEntry";
+import NonResidentCampusEntry from "views/AddNonResidentEntry";
+import AllCampusExitTable from "views/Security/AllCampusExits";
+import AllNonResidentCampusEntryTable from "views/Security/allNonResidentEntry";
+import LostItemList from "views/Security/Lost";
+import FoundItemList from "views/Security/Found";
+import AddFoundItem from "views/Add_foundItem";
 
 
 
@@ -45,6 +54,73 @@ var routes = [
     icon: "ni ni-circle-08 text-pink",
     component: Register,
     layout: "/auth",
+  },
+  {
+    path: "/addcampusMovement",
+    name: "AddCampusMovement",
+    icon: "ni ni-circle-08 text-pink",
+    component: CampusExit,
+    layout: "/admin",
+    invisible: true
+  },
+  {
+    path: "/campusMovement",
+    name: "CampusMovement",
+    icon: "ni ni-circle-08 text-pink",
+    component: CampusExitTable,
+    layout: "/admin",
+  },
+  {
+    path: "/lostItems",
+    name: "Lost Items",
+    icon: "ni ni-circle-08 text-pink",
+    component: LostItemList,
+    layout: "/admin",
+  },
+  {
+    path: "/foundItems",
+    name: "Found Items",
+    icon: "ni ni-circle-08 text-pink",
+    component: FoundItemList,
+    layout: "/admin",
+  },
+  {
+    path: "/add_foundItem",
+    name: "Add Found Item",
+    icon: "ni ni-circle-08 text-pink",
+    component:AddFoundItem,
+    layout: "/admin",
+  },
+  {
+    path: "/all_CampusMovement",
+    name: "All Campus Exits",
+    icon: "ni ni-circle-08 text-pink",
+    component: AllCampusExitTable,
+    layout: "/admin",
+    invisible: true
+  },
+  {
+    path: "/nonResidentcampusMovement",
+    name: "NonResident CampusMovement",
+    icon: "ni ni-circle-08 text-pink",
+    component: NonResidentCampusEntryTable,
+    layout: "/admin",
+  },
+  {
+    path: "/allnonResidentcampusMovement",
+    name: "All NonResident CampusMovement",
+    icon: "ni ni-circle-08 text-pink",
+    component: AllNonResidentCampusEntryTable,
+    layout: "/admin",
+    invisible: true
+  },
+  {
+    path: "/addNonResidentcampusEntry",
+    name: "Add NonResident CampusMovement",
+    icon: "ni ni-circle-08 text-pink",
+    component: NonResidentCampusEntry,
+    layout: "/admin",
+    invisible: true
   },
 ];
 export default routes;
