@@ -18,6 +18,7 @@
 import Profile from "views/examples/Profile.js";
 
 import Register from "views/examples/Register.js";
+import SignUp from "views/examples/SignUp.js";
 import Login from "views/examples/Login.js";
 import CampusExit from "views/AddCampusExit";
 import CampusExitTable from "views/Security/Campus_movement";
@@ -56,6 +57,13 @@ var routes = [
     layout: "/auth",
   },
   {
+    path: "/signup",
+    name: "SignUp",
+    icon: "ni ni-circle-08 text-pink",
+    component: SignUp,
+    layout: "/auth",
+  },
+  {
     path: "/addcampusMovement",
     name: "AddCampusMovement",
     icon: "ni ni-circle-08 text-pink",
@@ -90,7 +98,7 @@ var routes = [
     icon: "ni ni-circle-08 text-pink",
     component:AddFoundItem,
     layout: "/admin",
-  },
+  }, 
   {
     path: "/all_CampusMovement",
     name: "All Campus Exits",
