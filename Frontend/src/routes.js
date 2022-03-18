@@ -28,6 +28,9 @@ import AllNonResidentCampusEntryTable from "views/Security/allNonResidentEntry";
 import LostItemList from "views/Security/Lost";
 import FoundItemList from "views/Security/Found";
 import AddFoundItem from "views/Add_foundItem";
+import HallEntryTable from "views/Security/ViewHallEntry";
+import AddHallEntry from "views/AddHallEntry";
+import AllHallEntryTable from "views/Security/AllhallEntries";
 
 
 
@@ -71,6 +74,29 @@ var routes = [
     layout: "/admin",
   },
   {
+    path: "/hallMovement",
+    name: "Hall Movement",
+    icon: "ni ni-circle-08 text-pink",
+    component: HallEntryTable,
+    layout: "/admin",
+  },
+  {
+    path: "/all_hallEntries",
+    name: "All Hall Movement",
+    icon: "ni ni-circle-08 text-pink",
+    component: AllHallEntryTable,
+    layout: "/admin",
+    invisible: true
+  },
+  {
+    path: "/addHallEntry",
+    name: "Add Hall Entry",
+    icon: "ni ni-circle-08 text-pink",
+    component: AddHallEntry,
+    layout: "/admin",
+    invisible:true
+  },
+  {
     path: "/lostItems",
     name: "Lost Items",
     icon: "ni ni-circle-08 text-pink",
@@ -90,6 +116,7 @@ var routes = [
     icon: "ni ni-circle-08 text-pink",
     component:AddFoundItem,
     layout: "/admin",
+    invisible:true
   },
   {
     path: "/all_CampusMovement",
