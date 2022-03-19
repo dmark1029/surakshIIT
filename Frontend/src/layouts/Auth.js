@@ -25,10 +25,12 @@ import AuthNavbar from "components/Navbars/AuthNavbar.js";
 import AuthFooter from "components/Footers/AuthFooter.js";
 
 import routes from "routes.js";
+import {useSelector} from "react-redux";
 
 const Auth = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
+  const session = useSelector((state)=> state.session)
 
   React.useEffect(() => {
     document.body.classList.add("bg-default");
@@ -57,6 +59,10 @@ const Auth = (props) => {
       }
     });
   };
+
+  if(session.authenticated){
+    return <Redirect to="/admin/index" />
+  }
 
   return (
     <>

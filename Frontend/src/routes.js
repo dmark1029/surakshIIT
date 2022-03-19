@@ -29,6 +29,7 @@ import AllNonResidentCampusEntryTable from "views/Security/allNonResidentEntry";
 import LostItemList from "views/Security/Lost";
 import FoundItemList from "views/Security/Found";
 import AddFoundItem from "views/Add_foundItem";
+import AddLostItem from "views/Add_lostitem";
 import HallEntryTable from "views/Security/ViewHallEntry";
 import AddHallEntry from "views/AddHallEntry";
 import AllHallEntryTable from "views/Security/AllhallEntries";
@@ -123,6 +124,14 @@ var routes = [
     name: "Add Found Item",
     icon: "ni ni-circle-08 text-pink",
     component:AddFoundItem,
+    layout: "/admin",
+    invisible:true
+  },
+  {
+    path: "/add_lostItem",
+    name: "Add Lost Item",
+    icon: "ni ni-circle-08 text-pink",
+    component:AddLostItem,
     layout: "/admin",
     invisible:true
   },

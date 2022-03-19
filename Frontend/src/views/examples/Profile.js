@@ -45,7 +45,7 @@ const Profile = () => {
 
   const fetchData = async() => {
 
-    
+    axios.defaults.withCredentials = true;
     await axios 
     .get(BACKEND_URL)
     .then((result) => {

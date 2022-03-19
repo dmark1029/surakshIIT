@@ -45,10 +45,12 @@ const Register = () => {
       re_password: re_password,
       dp: dp
     }
-
+    axios.defaults.withCredentials = true;
+    axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
     await axios
       .post(BACKEND_URL, data)
-      .then(() => alert("Exit Data Submitted"))
+      .then(() => alert("Registered Successfully, Proceed to login"))
       .catch(() => alert("Some Error occured"))
     console.log("kjdb")
   }

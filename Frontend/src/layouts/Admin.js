@@ -24,12 +24,15 @@ import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import AdminFooter from "components/Footers/AdminFooter.js";
 import Sidebar from "components/Sidebar/Sidebar.js";
 
+
 import routes from "routes.js";
+import { useSelector } from "react-redux";
 
 const Admin = (props) => {
   const mainContent = React.useRef(null);
   const location = useLocation();
-
+  const session = useSelector((state) => state.session);
+  
   React.useEffect(() => {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
@@ -63,6 +66,10 @@ const Admin = (props) => {
     }
     return "Brand";
   };
+
+  if(!session.authenticated){
+    return <Redirect to="/auth/login" />
+  }
 
   return (
     <>

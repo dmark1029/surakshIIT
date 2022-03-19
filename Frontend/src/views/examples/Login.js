@@ -17,6 +17,8 @@
 */
 
 // reactstrap components
+import { useState } from "react";
+import axios from "axios";
 import {
   Button,
   Card,
@@ -32,7 +34,43 @@ import {
   Col,
 } from "reactstrap";
 
+import {useDispatch} from "react-redux"
+import { login } from "actions/userActions";
+
+const BACKEND_URL = "http://127.0.0.1:8000/login/"
+
 const Login = () => {
+
+  const [UID,setUID]=useState("");
+  const [pass,setPass]=useState("");
+
+  const handleSubmit = async() => {
+    const data = {
+        uid: UID,
+        password: pass,
+        
+    }
+    axios.defaults.withCredentials = true;
+    axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+    await axios 
+    .post(BACKEND_URL,data)
+    .then((res)=>{
+      if(res.status==200){
+        dispatch(login(UID));
+      }
+      
+    })
+    .catch(()=>alert("Misleading UID given"))
+    
+}
+const dispatch = useDispatch();
+
+
+  
+
+
+
   return (
     <>
       <Col lg="5" md="7">
@@ -94,6 +132,10 @@ const Login = () => {
                     placeholder="Email"
                     type="email"
                     autoComplete="new-email"
+                    onChange={(event) => {
+                      event.preventDefault();
+                        setUID(event.target.value);
+                        }}
                   />
                 </InputGroup>
               </FormGroup>
@@ -108,6 +150,10 @@ const Login = () => {
                     placeholder="Password"
                     type="password"
                     autoComplete="new-password"
+                    onChange={(event) => {
+                      event.preventDefault();
+                        setPass(event.target.value);
+                        }}
                   />
                 </InputGroup>
               </FormGroup>
@@ -125,7 +171,7 @@ const Login = () => {
                 </label>
               </div>
               <div className="text-center">
-                <Button className="my-4" color="primary" type="button">
+                <Button className="my-4" color="primary" type="button" onClick={handleSubmit}>
                   Sign in
                 </Button>
               </div>

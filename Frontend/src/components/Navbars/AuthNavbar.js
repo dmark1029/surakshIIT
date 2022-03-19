@@ -28,9 +28,12 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import { useSelector } from "react-redux";
 
 const AdminNavbar = () => {
+  const session = useSelector((state) => state.session);
   return (
+    
     <>
       <Navbar className="navbar-top navbar-horizontal navbar-dark" expand="md">
         <Container className="px-4">

@@ -24,6 +24,7 @@ import {
   Col,
   InputGroupButtonDropdown,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const Backend_URL = "http://127.0.0.1:8000/security/"
 
@@ -58,13 +59,22 @@ const LostItemList = () =>{
 
     return(
         <>
+        <br></br><br></br><br></br>
+        <Row>
+         <Col>
+         <Link to="/admin/add_lostItem" className="btn btn-primary">Add Lost Query</Link>
+         </Col>
+         
+
+       </Row>
+       <br></br>
             <h1>Lost Items</h1>
             <div className="mt-5">
                 <CardGroup>
                     {LostItems.map((item, key)=>{
                         return (
                             <Card className="mx-3 my-3" key={key}>
-                            {/* <CardImg variant="top" src={item.image} alt="item pic"></CardImg> */}
+                            <CardImg variant="top" src={"http://127.0.0.1:8000"+item.image} alt="item pic"></CardImg>
                                 <CardBody>
                                 <CardTitle><h2>{item.name}</h2></CardTitle>
                                 <CardText>
