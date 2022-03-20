@@ -33,8 +33,8 @@ import {
           hall: Hall,
       }
       axios.defaults.withCredentials = true;
-    axios.defaults.xsrfCookieName = 'csrftoken'
-    axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+      axios.defaults.xsrfCookieName = 'csrftoken'
+      axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 
       await axios 
       .post(BACKEND_URL,data)

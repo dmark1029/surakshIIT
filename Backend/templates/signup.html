@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block body %}
+
+<div class="container mb-3 py-4">
+    <h1 class="text-center">Sign Up</h1>
+    <form method="post" action="/signup">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="signupusername">Name</label>
+            <input type="text" class="form-control" id="signupusername" name="signupusername" placeholder="Enter your Name">
+        </div>
+
+        <div class="form-group">
+            <label for="signupemail">Email address</label>
+            <input type="email" class="form-control" id="signupemail" name="signupemail" placeholder="Enter Your Email">
+        </div>
+        
+        
+        <div class="form-group">
+            <label for="signuppassword">Password</label>
+            <input type="text" class="form-control" id="signuppassword" name="signuppassword" placeholder="Enter your Password">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+</div>
+
+{% endblock body %}
