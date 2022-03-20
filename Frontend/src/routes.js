@@ -18,7 +18,7 @@
 import Profile from "views/examples/Profile.js";
 
 import Register from "views/examples/Register.js";
-import SignUp from "views/examples/SignUp.js";
+
 import Login from "views/examples/Login.js";
 import CampusExit from "views/AddCampusExit";
 import CampusExitTable from "views/Security/Campus_movement";
@@ -44,7 +44,7 @@ var routes = [
     name: "User Profile",
     icon: "ni ni-single-02 text-yellow",
     component: Profile,
-    layout: "/admin",
+    layout: "/user",
   },
   {
     path: "/login",
@@ -60,13 +60,7 @@ var routes = [
     component: Register,
     layout: "/auth",
   },
-  {
-    path: "/signup",
-    name: "SignUp",
-    icon: "ni ni-circle-08 text-pink",
-    component: SignUp,
-    layout: "/auth",
-  },
+  
   {
     path: "/addcampusMovement",
     name: "AddCampusMovement",
@@ -134,6 +128,14 @@ var routes = [
     component:AddLostItem,
     layout: "/admin",
     invisible:true
+  },
+  {
+    path: "/add_lostItem",
+    name: "Add Lost Item",
+    icon: "ni ni-circle-08 text-pink",
+    component:AddLostItem,
+    layout: "/user",
+   
   },
   {
     path: "/all_CampusMovement",

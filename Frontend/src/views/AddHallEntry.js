@@ -32,11 +32,10 @@ import {
           destination: Destination,
           hall: Hall,
       }
-
       axios.defaults.withCredentials = true;
       axios.defaults.xsrfCookieName = 'csrftoken'
       axios.defaults.xsrfHeaderName = 'X-CSRFToken'
-      
+
       await axios 
       .post(BACKEND_URL,data)
       .then(()=>alert("Entry Data Submitted"))

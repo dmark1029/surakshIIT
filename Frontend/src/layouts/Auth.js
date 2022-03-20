@@ -60,9 +60,7 @@ const Auth = (props) => {
     });
   };
 
-  if(session.authenticated){
-    return <Redirect to="/admin/index" />
-  }
+  
 
   return (
     <>
