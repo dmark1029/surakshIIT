@@ -60,6 +60,9 @@ import {
           id_document: id_document,
           id_number: id_number
       }
+      axios.defaults.withCredentials = true;
+      axios.defaults.xsrfCookieName = 'csrftoken'
+      axios.defaults.xsrfHeaderName = 'X-CSRFToken'
       
       await axios 
       .post(BACKEND_URL,data)

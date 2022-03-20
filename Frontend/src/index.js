@@ -44,13 +44,14 @@ sessionService.initSessionService(store, options)
 
   const App = () => {
     const session = useSelector((state) => state.session);
-    const [iflogged,setiflogged]=useState(false)
+    const [iflogged,setiflogged]=useState(false);
     
-    console.log("jkbxcxkj");
+    
+    console.log(session.user.uid);
     return (
       <BrowserRouter>
         <Switch>
-          <Route path= "/admin"  render={(props) => <AdminLayout {...props} />} />
+          <Route path={session.authenticated?"/":"/user"} render={(props) => <AdminLayout {...props} />} />
           <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
           <Redirect from="*" to="/auth/login" />
         </Switch>

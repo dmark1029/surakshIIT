@@ -20,6 +20,7 @@ import { useState } from "react";
 import { NavLink as NavLinkRRD, Link } from "react-router-dom";
 // nodejs library to set properties for components
 import { PropTypes } from "prop-types";
+import { useSelector } from "react-redux";
 
 // reactstrap components
 import {
@@ -54,8 +55,10 @@ import {
 
 var ps;
 
+
 const Sidebar = (props) => {
   const [collapseOpen, setCollapseOpen] = useState();
+  const session = useSelector((state) => state.session);
   // verifies if routeName is the one active (in browser input)
   const activeRoute = (routeName) => {
     return props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
@@ -72,6 +75,13 @@ const Sidebar = (props) => {
 
   const createLinks = (routes) => {
     return routes.map((prop, key) => {
+      if(session.user.uid=="201055"){
+        if(prop.layout=="/user")return null;
+      }
+      if(session.user.uid!="201055"){
+        if(prop.layout=="/admin")return null;
+      }
+      if(session.authenticated && prop.layout=='/auth')return null;
       if(prop.invisible) return null;
       return (
         <NavItem key={key}>

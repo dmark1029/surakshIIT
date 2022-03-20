@@ -56,6 +56,10 @@ const AddFoundItem = () =>{
 
     console.log(item)
 
+    axios.defaults.withCredentials = true;
+    axios.defaults.xsrfCookieName = 'csrftoken'
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
     await axios 
       .post(Backend_URL,form_data,{headers: {
         'content-type': 'multipart/form-data'
