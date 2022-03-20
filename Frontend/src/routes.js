@@ -72,14 +72,14 @@ var routes = [
   {
     path: "/campusMovement",
     name: "CampusMovement",
-    icon: "ni ni-circle-08 text-pink",
+    icon: "ni ni-istanbul text-blue",
     component: CampusExitTable,
     layout: "/admin",
   },
   {
     path: "/hallMovement",
     name: "Hall Movement",
-    icon: "ni ni-circle-08 text-pink",
+    icon: "ni ni-building text-pink",
     component: HallEntryTable,
     layout: "/admin",
   },
@@ -102,14 +102,14 @@ var routes = [
   {
     path: "/lostItems",
     name: "Lost Items",
-    icon: "ni ni-circle-08 text-pink",
+    icon: "ni ni-fat-remove text-red",
     component: LostItemList,
     layout: "/admin",
   },
   {
     path: "/foundItems",
     name: "Found Items",
-    icon: "ni ni-circle-08 text-pink",
+    icon: "ni ni-check-bold text-green",
     component: FoundItemList,
     layout: "/admin",
   },
@@ -148,7 +148,7 @@ var routes = [
   {
     path: "/nonResidentcampusMovement",
     name: "NonResident CampusMovement",
-    icon: "ni ni-circle-08 text-pink",
+    icon: "ni ni-world text-cyan",
     component: NonResidentCampusEntryTable,
     layout: "/admin",
   },
