@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock title %}
+
+{% block body %}
+
+<div class="container mb-3 py-4">
+    <h1 class="text-center">Register</h1>
+    <form method="post" action="/register">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name">
+        </div>
+
+        <div class="form-group">
+            <label for="uid">Uid</label>
+            <input type="text" class="form-control" id="uid" name="uid" placeholder="Enter your Uid here">
+        </div>
+
+
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email">
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone Number">
+        </div>
+        
+        <div class="form-group">
+            <label for="room_no">Room Number</label>
+            <input type="text" class="form-control" id="room_no" name="room_no" placeholder="Enter your Room Number">
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter your Address">
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="number" class="form-control" id="gender" name="gender" placeholder="Gender">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" id="password" name="password" placeholder="Enter new Password">
+        </div>
+
+        <div class="form-group">
+            <label for="re_password">Re enter Password</label>
+            <input type="text" class="form-control" id="re_password" name="re_password" placeholder="Enter new Password again">
+        </div>
+        
+        <div class="custom-file">
+            <label class="custom-file-label" for="dp">Choose file</label>
+            <input type="file" class="custom-file-input" id="dp" name="dp" placeholder="Upload DP here">
+          </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+</div>
+
+{% endblock body %}

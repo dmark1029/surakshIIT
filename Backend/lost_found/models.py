@@ -1,6 +1,9 @@
 from django.db import models
+# from sqlalchemy import null
 
-from user.models import Residents,Security
+import uuid
+
+from user.models import CampusJunta
 
 color_Choices= (
     ("1","Black"),
@@ -13,22 +16,29 @@ color_Choices= (
 
 class Lost_item(models.Model):
     name = models.CharField(max_length=100)
-    owner = models.ForeignKey(Residents,on_delete=models.CASCADE)
-    item_color= models.CharField(max_length=50,choices=color_Choices)
+    owner = models.ForeignKey(CampusJunta,on_delete=models.CASCADE,null=True)
+    item_color= models.CharField(max_length=50)
     details = models.CharField(max_length=2000)
     last_seen = models.CharField(max_length=100)
-    image= models.ImageField()
-    lost_time = models.DateTimeField("losttime")
+    image= models.ImageField(null=True)
+    lost_time = models.DateTimeField("losttime",null=True)
     if_found = models.BooleanField(default=False,editable=True)
+    id = models.UUIDField(
+         primary_key = True,
+         default = uuid.uuid4,
+         editable = False)
 
 class Found_item(models.Model):
     name = models.CharField(max_length=100)
-    who_found = models.ForeignKey(Residents,on_delete=models.CASCADE)
-    item_color= models.CharField(max_length=50,choices=color_Choices)
+    who_found = models.ForeignKey(CampusJunta,on_delete=models.CASCADE,null=True)
+    item_color= models.CharField(max_length=50)
     details = models.CharField(max_length=2000)
     where_found = models.CharField(max_length=100)
-    image= models.ImageField()
-    found_time = models.DateTimeField("losttime")
+    image= models.ImageField(upload_to='found_item_images/',null=True)
+    found_time = models.DateTimeField("found_time",null=True)
     if_returned = models.BooleanField(default=False,editable=True)
-
-# Create your models here.
+    id = models.UUIDField(
+         primary_key = True,
+         default = uuid.uuid4,
+         editable = False)
+ 

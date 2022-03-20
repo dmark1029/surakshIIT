@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock title %}
+
+{% block body %}
+
+<div class="container mb-3 py-4">
+    <h1 class="text-center">Login</h1>
+    <form method="post" action="/login">
+    {% csrf_token %}
+        <div class="form-group">
+            <label for="loginusername">Name</label>
+            <input type="text" class="form-control" id="loginusername" name="loginusername" placeholder="Enter your Name">
+        </div>
+
+        <div class="form-group">
+            <label for="loginemail">Email address</label>
+            <input type="email" class="form-control" id="loginemail" name="loginemail" placeholder="Enter Your Email">
+        </div>
+        
+        
+        <div class="form-group">
+            <label for="loginpassword">Password</label>
+            <input type="text" class="form-control" id="loginpassword" name="loginpassword" placeholder="Enter your Password">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+</div>
+
+{% endblock body %}

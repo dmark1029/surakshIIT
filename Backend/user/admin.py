@@ -1,7 +1,6 @@
+import re
 from django.contrib import admin
 
-# Register your models here.
-from .models import Residents,Security
+from user.models import CampusJunta
+admin.site.register(CampusJunta)
 
-admin.site.register(Residents)
-admin.site.register(Security)
