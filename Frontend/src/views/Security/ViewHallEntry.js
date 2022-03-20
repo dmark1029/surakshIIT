@@ -40,10 +40,10 @@ const HallEntryTable =()=>{
        <br></br> <br></br> <br></br> <br></br>
        <Row>
          <Col>
-         <Link to="/admin/addHallEntry" className="btn btn-primary">Add Hall Entry</Link>
+         <Link to="/security/addHallEntry" className="btn btn-primary">Add Hall Entry</Link>
          </Col>
          <Col>
-         <Link to="/admin/all_hallEntries" className="btn btn-primary">See all records</Link>
+         <Link to="/security/all_hallEntries" className="btn btn-primary">See all records</Link>
          </Col>
 
        </Row>

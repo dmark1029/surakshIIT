@@ -41,7 +41,7 @@ const AllNonResidentCampusEntryTable =()=>{
         < >
        <br></br> <br></br> <br></br> <br></br>
 
-       <Link to="/admin/addNonResidentcampusEntry" className="btn btn-primary">Add Entry</Link>
+       <Link to="/security/addNonResidentcampusEntry" className="btn btn-primary">Add Entry</Link>
         <Container>
          <ReactTable 
          data = {entryData}

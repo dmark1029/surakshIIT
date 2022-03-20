@@ -33,6 +33,22 @@ const Register = () => {
   const [dp, setDP] = useState("");
 
   const handleSubmit = async () => {
+
+
+
+
+
+    let form_data = new FormData();
+    form_data.append('uid',uid);
+    form_data.append('name',name);
+    form_data.append('email',email);
+    form_data.append('phone', phone);
+    form_data.append('room_no', room_no);
+    form_data.append('address', address);
+    form_data.append('gender', gender);
+    form_data.append('password',password);
+    form_data.append('re_password',re_password);
+    form_data.append('dp', dp)
     const data = {
       uid: uid,
       name: name,
@@ -48,13 +64,13 @@ const Register = () => {
     axios.defaults.withCredentials = true;
     axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
-    await axios
-      .post(BACKEND_URL, data)
-      .then(() => alert("Registered Successfully, Proceed to login"))
-      .catch(() => alert("Some Error occured"))
-    console.log("kjdb")
-  }
-
+await axios 
+.post(BACKEND_URL,form_data,{headers: {
+  'content-type': 'multipart/form-data'
+}})
+.then(()=>alert("Registered Successfuly!!"))
+.catch(()=>alert("An error ocurred"))
+}
 
 
   return (
@@ -289,10 +305,24 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken'
                   <option >--select--</option>
                   <option value="1">Male</option>
                   <option value="2">Female</option>
-                  <option value="3">Rather Not Say</option>
+                  <option value="3">Other</option>
 
                 </select>
               </FormGroup>
+
+              <FormGroup>
+                                    <label className="form-control-label" htmlFor="input-pic">Image</label>
+                                    <Input
+                                      className="form-control-alternative"
+                                      onChange={(event) => {
+                                      event.preventDefault();
+                                      setDP(event.target.files[0]);
+                                        }}
+                                      id="image"
+                                      type="file"
+                                      accept="image/png, image/jpeg"
+                                    />
+                                  </FormGroup>
 
               <div className="text-center">
                 <Button className="mt-4" color="primary" onClick={handleSubmit} type="button">

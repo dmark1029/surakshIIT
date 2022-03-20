@@ -33,7 +33,7 @@ import AddLostItem from "views/Add_lostitem";
 import HallEntryTable from "views/Security/ViewHallEntry";
 import AddHallEntry from "views/AddHallEntry";
 import AllHallEntryTable from "views/Security/AllhallEntries";
-
+import SecProfile from "views/Security/securityProfile";
 
 
 var routes = [
@@ -45,6 +45,13 @@ var routes = [
     icon: "ni ni-single-02 text-yellow",
     component: Profile,
     layout: "/user",
+  },
+  {
+    path: "/index",
+    name: "Security Profile",
+    icon: "ni ni-single-02 text-yellow",
+    component: SecProfile,
+    layout: "/security",
   },
   {
     path: "/login",
@@ -66,7 +73,7 @@ var routes = [
     name: "AddCampusMovement",
     icon: "ni ni-circle-08 text-pink",
     component: CampusExit,
-    layout: "/admin",
+    layout: "/security",
     invisible: true
   },
   {
@@ -74,21 +81,21 @@ var routes = [
     name: "CampusMovement",
     icon: "ni ni-circle-08 text-pink",
     component: CampusExitTable,
-    layout: "/admin",
+    layout: "/security",
   },
   {
     path: "/hallMovement",
     name: "Hall Movement",
     icon: "ni ni-circle-08 text-pink",
     component: HallEntryTable,
-    layout: "/admin",
+    layout: "/security",
   },
   {
     path: "/all_hallEntries",
     name: "All Hall Movement",
     icon: "ni ni-circle-08 text-pink",
     component: AllHallEntryTable,
-    layout: "/admin",
+    layout: "/security",
     invisible: true
   },
   {
@@ -96,7 +103,7 @@ var routes = [
     name: "Add Hall Entry",
     icon: "ni ni-circle-08 text-pink",
     component: AddHallEntry,
-    layout: "/admin",
+    layout: "/security",
     invisible:true
   },
   {
@@ -104,21 +111,21 @@ var routes = [
     name: "Lost Items",
     icon: "ni ni-circle-08 text-pink",
     component: LostItemList,
-    layout: "/admin",
+    layout: "/security",
   },
   {
     path: "/foundItems",
     name: "Found Items",
     icon: "ni ni-circle-08 text-pink",
     component: FoundItemList,
-    layout: "/admin",
+    layout: "/security",
   },
   {
     path: "/add_foundItem",
     name: "Add Found Item",
     icon: "ni ni-circle-08 text-pink",
     component:AddFoundItem,
-    layout: "/admin",
+    layout: "/security",
     invisible:true
   },
   {
@@ -126,7 +133,7 @@ var routes = [
     name: "Add Lost Item",
     icon: "ni ni-circle-08 text-pink",
     component:AddLostItem,
-    layout: "/admin",
+    layout: "/security",
     invisible:true
   },
   {
@@ -142,7 +149,7 @@ var routes = [
     name: "All Campus Exits",
     icon: "ni ni-circle-08 text-pink",
     component: AllCampusExitTable,
-    layout: "/admin",
+    layout: "/security",
     invisible: true
   },
   {
@@ -150,14 +157,14 @@ var routes = [
     name: "NonResident CampusMovement",
     icon: "ni ni-circle-08 text-pink",
     component: NonResidentCampusEntryTable,
-    layout: "/admin",
+    layout: "/security",
   },
   {
     path: "/allnonResidentcampusMovement",
     name: "All NonResident CampusMovement",
     icon: "ni ni-circle-08 text-pink",
     component: AllNonResidentCampusEntryTable,
-    layout: "/admin",
+    layout: "/security",
     invisible: true
   },
   {
@@ -165,7 +172,7 @@ var routes = [
     name: "Add NonResident CampusMovement",
     icon: "ni ni-circle-08 text-pink",
     component: NonResidentCampusEntry,
-    layout: "/admin",
+    layout: "/security",
     invisible: true
   },
 ];

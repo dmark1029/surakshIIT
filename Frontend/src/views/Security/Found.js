@@ -62,7 +62,7 @@ const FoundItemList = () =>{
         <br></br><br></br><br></br>
         <Row>
          <Col>
-         <Link to="/admin/add_foundItem" className="btn btn-primary">Add Found Record</Link>
+         <Link to="/security/add_foundItem" className="btn btn-primary">Add Found Record</Link>
          </Col>
          
 

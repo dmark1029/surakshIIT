@@ -62,7 +62,7 @@ const LostItemList = () =>{
         <br></br><br></br><br></br>
         <Row>
          <Col>
-         <Link to="/admin/add_lostItem" className="btn btn-primary">Add Lost Query</Link>
+         <Link to="/security/add_lostItem" className="btn btn-primary">Add Lost Query</Link>
          </Col>
          
 

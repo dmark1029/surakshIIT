@@ -40,10 +40,10 @@ const CampusExitTable =()=>{
        <br></br> <br></br> <br></br> <br></br>
        <Row>
          <Col>
-         <Link to="/admin/addcampusMovement" className="btn btn-primary">Add Campus Exit</Link>
+         <Link to="/security/addcampusMovement" className="btn btn-primary">Add Campus Exit</Link>
          </Col>
          <Col>
-         <Link to="/admin/all_CampusMovement" className="btn btn-primary">See all records</Link>
+         <Link to="/security/all_CampusMovement" className="btn btn-primary">See all records</Link>
          </Col>
 
        </Row>

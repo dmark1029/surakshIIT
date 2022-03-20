@@ -77,9 +77,7 @@ const Profile = () => {
                         alt="..."
                         className="rounded-circle"
                         src={
-                          require("../../assets/img/theme/team-4-800x800.jpg")
-                            .default
-                        }
+                          "http://127.0.0.1:8000"+userData.dp                        }
                       />
                     </a>
                   </div>

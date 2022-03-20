@@ -51,6 +51,8 @@ sessionService.initSessionService(store, options)
     return (
       <BrowserRouter>
         <Switch>
+          
+         
           <Route path={session.authenticated?"/":"/user"} render={(props) => <AdminLayout {...props} />} />
           <Route path="/auth" render={(props) => <AuthLayout {...props} />} />
           <Redirect from="*" to="/auth/login" />

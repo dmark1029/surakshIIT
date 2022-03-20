@@ -53,10 +53,10 @@ const NonResidentCampusEntryTable =()=>{
        <br></br> <br></br> <br></br> <br></br>
        <Row>
            <Col>
-           <Link to="/admin/addNonResidentcampusEntry" className="btn btn-primary">Add Entry</Link>
+           <Link to="/security/addNonResidentcampusEntry" className="btn btn-primary">Add Entry</Link>
            </Col>
            <Col>
-           <Link to="/admin/allnonResidentcampusMovement" className="btn btn-primary">See all Records</Link>
+           <Link to="/security/allnonResidentcampusMovement" className="btn btn-primary">See all Records</Link>
            </Col>
        </Row>
        <br></br>
