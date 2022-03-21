@@ -47,7 +47,7 @@ import {
     const [id_document, setIdDocument] = useState(0);
     const [id_number, setIdNumber] = useState("")
 
-
+  
 
 
   const handleSubmit = async() => {
@@ -60,6 +60,11 @@ import {
           id_document: id_document,
           id_number: id_number
       }
+
+      if(name=="" | concerned=="") {
+        alert(("Fill in the required details"))
+      }
+      else{
       axios.defaults.withCredentials = true;
       axios.defaults.xsrfCookieName = 'csrftoken'
       axios.defaults.xsrfHeaderName = 'X-CSRFToken'
@@ -68,7 +73,8 @@ import {
       .post(BACKEND_URL,data)
       .then(()=>alert("Entry Data Submitted"))
       .catch(()=>alert("Misleading UID given"))
-  }
+      }
+   }
 
     return (
       <>

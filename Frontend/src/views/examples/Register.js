@@ -61,65 +61,45 @@ const Register = () => {
       re_password: re_password,
       dp: dp
     }
-    axios.defaults.withCredentials = true;
+
+    if(uid=="" | name=="" | email=="" | phone==""|room_no==""|address==""|gender==""|password==""|re_password==""){
+      alert(("Please fill in all the required details"))
+    }
+
+    else {
+
+      axios.defaults.withCredentials = true;
     axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = 'X-CSRFToken'
 await axios 
 .post(BACKEND_URL,form_data,{headers: {
   'content-type': 'multipart/form-data'
 }})
-.then(()=>alert("Registered Successfuly!!"))
-.catch(()=>alert("An error ocurred"))
+.then((response)=>alert("Registered Successfuly!!"))
+.catch((err)=>alert((err.response.data.message)))
 }
+
+    }
+
+    
 
 
   return (
     <>
       <Col lg="6" md="8">
+      <div>
+        <img  width={450}
+                      alt="..."
+                      src={
+                        require("../../assets/img/brand/argon-react-white.png")
+                          .default
+                      }
+                    />
+        </div>
         <Card className="bg-secondary shadow border-0">
-          {/* <CardHeader className="bg-transparent pb-5">
-            <div className="text-muted text-center mt-2 mb-4">
-              <small>Sign up with</small>
-            </div>
-            <div className="text-center">
-              <Button
-                className="btn-neutral btn-icon mr-4"
-                color="default"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <span className="btn-inner--icon">
-                  <img
-                    alt="..."
-                    src={
-                      require("../../assets/img/icons/common/github.svg")
-                        .default
-                    }
-                  />
-                </span>
-                <span className="btn-inner--text">Github</span>
-              </Button>
-              <Button
-                className="btn-neutral btn-icon"
-                color="default"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
-              >
-                <span className="btn-inner--icon">
-                  <img
-                    alt="..."
-                    src={
-                      require("../../assets/img/icons/common/google.svg")
-                        .default
-                    }
-                  />
-                </span>
-                <span className="btn-inner--text">Google</span>
-              </Button>
-            </div>
-          </CardHeader> */}
+          {}
           <CardBody className="px-lg-5 py-lg-5">
-        
+           <small><center> Enter your details</center></small>
             <Form role="form">
           
             <FormGroup>
@@ -146,7 +126,7 @@ await axios
                 <InputGroup className="input-group-alternative mb-3">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
-                      <i className="ni ni-hat-3" />
+                      <i className="ni ni-single-02" />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
@@ -187,7 +167,7 @@ await axios
                 <InputGroup className="input-group-alternative mb-3">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
-                      <i className="ni ni-hat-3" />
+                      <i className="ni ni-tablet-button" />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
@@ -208,7 +188,7 @@ await axios
                 <InputGroup className="input-group-alternative mb-3">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
-                      <i className="ni ni-hat-3" />
+                      <i className="ni ni-badge" />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
@@ -229,7 +209,7 @@ await axios
                 <InputGroup className="input-group-alternative mb-3">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
-                      <i className="ni ni-hat-3" />
+                      <i className="ni ni-building" />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
@@ -273,7 +253,7 @@ await axios
                 <InputGroup className="input-group-alternative mb-3">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
-                      <i className="ni ni-hat-3" />
+                      <i className="ni ni-check-bold" />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
@@ -295,6 +275,7 @@ await axios
                   className="form-control-label"
                   htmlFor="Gender"
                 >
+                  
                   Gender
                 </label><br></br>
                 <select value={gender} onChange={(e) => {

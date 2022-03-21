@@ -16,8 +16,9 @@
 
 */
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
-import { logout } from "actions/userActions";
+
+import axios from "axios";
+import { sessionService } from "redux-react-session";
 // reactstrap components
 import {
   DropdownMenu,
@@ -38,7 +39,23 @@ import {
 
 const AdminNavbar = (props) => {
 
-  const dispatch = useDispatch();
+  const handleLogout= async() => {
+    
+    axios.defaults.withCredentials = true;
+    axios.defaults.xsrfCookieName = 'csrftoken'
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+    await axios
+     .post("http://127.0.0.1:8000/logout/",{})
+     .then((response)=>{
+        sessionService.deleteSession();
+        sessionService.deleteUser();
+      })
+     .catch((err)=>{console.log("error");
+
+      });
+}
+
+
   return (
     <>
       <Navbar className="navbar-top navbar-dark" expand="md" id="navbar-main">
@@ -88,7 +105,7 @@ const AdminNavbar = (props) => {
                 
                 <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
                   <i className="ni ni-user-run" />
-                  <span onClick={()=>dispatch(logout())}>Logout</span>
+                  <span onClick={handleLogout}>Logout</span>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

@@ -33,6 +33,7 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
 import {useDispatch} from "react-redux"
 import { login } from "actions/userActions";
@@ -50,9 +51,15 @@ const Login = () => {
         password: pass,
         
     }
-    axios.defaults.withCredentials = true;
+    
+    if(UID=="" | pass=="") {
+      alert(("Fill in the required details"))
+    }
+    else{
+      axios.defaults.withCredentials = true;
     axios.defaults.xsrfCookieName = 'csrftoken'
-axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+    axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
     await axios 
     .post(BACKEND_URL,data)
     .then((res)=>{
@@ -61,9 +68,14 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken'
       }
       
     })
-    .catch(()=>alert("Misleading UID given"))
+    .catch((err)=>alert((err.response.data.message)))
     
 }
+
+
+
+    }
+    
 const dispatch = useDispatch();
 
 
@@ -73,8 +85,18 @@ const dispatch = useDispatch();
 
   return (
     <>
-      <Col lg="5" md="7">
-        <Card className="bg-secondary shadow border-0">
+      
+      <Col lg="5" md="7" >
+        <div>
+        <img  width={390}
+                      alt="..."
+                      src={
+                        require("../../assets/img/brand/argon-react-white.png")
+                          .default
+                      }
+                    />
+        </div>
+        <Card >
           
           <CardBody className="px-lg-5 py-lg-5">
             <div className="text-center text-muted mb-4">
@@ -85,10 +107,11 @@ const dispatch = useDispatch();
                 <InputGroup className="input-group-alternative">
                   <InputGroupAddon addonType="prepend">
                     <InputGroupText>
-                      <i className="ni ni-email-83" />
+                      <i className="ni ni-circle-08" />
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
+                    required
                     placeholder="UID"
                     type="test"
                     autoComplete="new-UID"
@@ -107,6 +130,7 @@ const dispatch = useDispatch();
                     </InputGroupText>
                   </InputGroupAddon>
                   <Input
+                    required
                     placeholder="Password"
                     type="password"
                     autoComplete="new-password"
@@ -117,19 +141,7 @@ const dispatch = useDispatch();
                   />
                 </InputGroup>
               </FormGroup>
-              <div className="custom-control custom-control-alternative custom-checkbox">
-                <input
-                  className="custom-control-input"
-                  id=" customCheckLogin"
-                  type="checkbox"
-                />
-                <label
-                  className="custom-control-label"
-                  htmlFor=" customCheckLogin"
-                >
-                  <span className="text-muted">Remember me</span>
-                </label>
-              </div>
+              
               <div className="text-center">
                 <Button className="my-4" color="primary" type="button" onClick={handleSubmit}>
                   Sign in
@@ -138,26 +150,7 @@ const dispatch = useDispatch();
             </Form>
           </CardBody>
         </Card>
-        <Row className="mt-3">
-          <Col xs="6">
-            <a
-              className="text-light"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              <small>Forgot password?</small>
-            </a>
-          </Col>
-          <Col className="text-right" xs="6">
-            <a
-              className="text-light"
-              href="#pablo"
-              onClick={(e) => e.preventDefault()}
-            >
-              <small>Create new account</small>
-            </a>
-          </Col>
-        </Row>
+        
       </Col>
     </>
   );

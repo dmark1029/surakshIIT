@@ -48,6 +48,11 @@ import {
           destination: destination,
           
       }
+
+      if(uid=="" | destination=="") {
+        alert(("Fill in the required details"))
+      }
+      else{
       axios.defaults.withCredentials = true;
       axios.defaults.xsrfCookieName = 'csrftoken'
       axios.defaults.xsrfHeaderName = 'X-CSRFToken'
@@ -63,6 +68,7 @@ import {
       setUID("");
         setDestination("")
   }
+}
 
 
 

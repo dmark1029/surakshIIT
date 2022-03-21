@@ -47,7 +47,11 @@ const AddLostItem = () =>{
     form_data.append('owner',Owner);
     form_data.append('details',Details);
     form_data.append('image',Image)
-
+    
+    if(Name=="" | Owner=="") {
+      alert(("Fill in the required details"))
+    }
+    else{
 
 
     axios.defaults.withCredentials = true;
@@ -60,7 +64,8 @@ const AddLostItem = () =>{
       }})
       .then(()=>alert("item Added"))
       .catch((err)=>alert(err))
-  }
+    }
+   }
 
   return (
     <>

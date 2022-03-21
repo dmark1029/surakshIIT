@@ -32,6 +32,11 @@ import {
           destination: Destination,
           hall: Hall,
       }
+
+      if(UID1=="" | UID2=="" | Destination=="") {
+        alert(("Fill in the required details"))
+      }
+      else{
       axios.defaults.withCredentials = true;
       axios.defaults.xsrfCookieName = 'csrftoken'
       axios.defaults.xsrfHeaderName = 'X-CSRFToken'
@@ -40,7 +45,8 @@ import {
       .post(BACKEND_URL,data)
       .then(()=>alert("Entry Data Submitted"))
       .catch((err)=>alert(err))
-  }
+     }
+   }
 
 
 

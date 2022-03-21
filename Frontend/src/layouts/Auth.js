@@ -60,6 +60,10 @@ const Auth = (props) => {
     });
   };
 
+  if(session.authenticated){
+    <Redirect to ={session.user.uid=="201055"?"/security":"/user"}></Redirect>
+  }
+
   
 
   return (
